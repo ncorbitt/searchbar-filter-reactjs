@@ -1,2 +1,2 @@
 # searchbar-filter-reactjs
-Your basic search bar using react to filter contacts
+Your basic search bar using react and react-bootstrap to filter contacts
