@@ -20,26 +20,10 @@ const UserSearchIcon = styled(UserSearch)`
 	width: 50px;
 `;
 
-function incrementLenVar() {
-	let len = 0;
-
-	function inc() {
-		len++;
-	}
-
-	function getLen() {
-		return len;
-	}
-
-	return {
-		inc: inc,
-		getLen: getLen
-	};
-}
 
 function SearchBar(props) {
 	const history = useHistory();
-	const [contacts, setcontacts] = useState(() => require('./contacts.json'));
+	const [contacts,] = useState(() => require('./contacts.json'));
 	const [matchCount, setMatchCount] = useState(null);
 	const [searchText, setSearchText] = useState('');
 
@@ -66,29 +50,37 @@ function SearchBar(props) {
 	return (
 		<div>
 			<Container>
-				<Row>
-					<Col>
+				<Row className='' style={{ marginTop: 'calc(25vh)' }}>
+					<Col className='align-self-center'>
 						<h3
 							className='mb-5 pb-3 mt-5'
 							style={{
 								fontSize: '3em',
-								borderBottom: '3px solid white'
+								borderBottom: '3px solid white',
+								textShadow: '1px 1px 7px black'
 							}}>
 							<span className='text-white'>C</span>
-							<span style={{ color: '#6bd4c1' }}>ontacts</span>
+							<span style={{ color: '#6bd4c1' }}>ontacts:</span>
 
-							{/* <i>
-								<span className='text-white'>U</span>
-								<span style={{ color: "#6bd4c1" }}>cms</span>
-							</i>
-
-							<span className='text-white'>C</span>
-							<span style={{ color: "#6bd4c1" }}>lients</span> */}
-
-							{/* <i className='ml-3' style={{ color: "#6bd4c1" }}>
+							<i className='float-right' style={{ color: "#6bd4c1" }}>
 								<span className='text-white'>{matchCount}</span> Matches
-							</i> */}
+							</i>
 						</h3>
+
+						<h6 className='text-white mb-2'
+							onMouseEnter={e => {
+								e.target.style.backgroundColor = '#142438';
+								e.target.style.padding = '7px';
+								e.target.style.border = '3px solid #6bd4c1';
+							}}
+							onMouseLeave={e => {
+								e.target.style.backgroundColor = '';
+								e.target.style.padding = '0px';
+								e.target.style.border = '';
+							}}>
+
+							Will search firstname and lastname
+						</h6>
 
 						<div
 							className='d-flex rounded py-3'
@@ -116,65 +108,64 @@ function SearchBar(props) {
 							{!searchText
 								? ''
 								: contacts.map(contact => {
-										//convert contact name to lowercase
-										let name = contact.firstName.toLowerCase();
-										let lastname = contact.lastName.toLowerCase();
+									//convert contact name to lowercase
+									let name = contact.firstName.toLowerCase();
+									let lastname = contact.lastName.toLowerCase();
 
-										//Build RegEx, search for first character match at the beginning of the string
-										let regexName = new RegExp(
-											`^${searchText}`,
-											'ig'
-										);
 
-										if (name.match(regexName)) {
-											increment.inc();
+									//This eslint, line disables the no-useless-escape error;
+									// eslint-disable-next-line no-useless-escape
+									let ifItsNotALetter = /[^a-z]/; //Matches any characters except those in the range a-z.
 
-											return (
-												<ListGroupItem
-													key={contact.email}
-													className='list-group-item shadow-lg'
-													style={{
-														backgroundColor: '#142438',
-														cursor: 'pointer'
-													}}
-													onClick={() =>
-														history.push(`/contact/${name}`, [
-															contact
-														])
-													}>
-													<h5
-														className='text-secondary'
-														style={{ fontSize: '1.5em' }}>
-														<span
-															id='listItemFirstName'
-															style={{
-																color: '#2d5d8e',
-																fontWeight: 'bold'
-															}}>
-															{contact.firstName.toLowerCase()}
-														</span>{' '}
+									if (searchText.match(ifItsNotALetter)) return null;
+
+
+									//Build RegEx, search for first character match at the beginning of the string
+									let regexName = new RegExp(`^${searchText}`, 'ig');
+
+									if (name.match(regexName) || lastname.match(regexName)) {
+										increment.inc();
+
+										return (
+											<ListGroupItem
+												key={contact.email}
+												className='list-group-item shadow-lg'
+												style={{
+													backgroundColor: '#142438',
+													cursor: 'pointer'
+												}}
+												onClick={() =>
+													history.push(`/contact/${name}`, [
+														contact
+													])
+												}>
+												<h5
+													className='text-secondary'
+													style={{ fontSize: '1.5em' }}>
+													<span
+														id='listItemFirstName'
+														style={{
+															color: '#2d5d8e',
+															fontWeight: 'bold'
+														}}>
+														{contact.firstName.toLowerCase()}
+													</span>{' '}
 														&nbsp;
 														<span style={{ color: '#6bd4c1' }}>
-															{contact.lastName.toLowerCase()}
-														</span>
-													</h5>
-												</ListGroupItem>
-											);
-										} else {
-											return (
-												<ListGroupItem
-													style={{ display: 'none' }}
-													key={contact.email}>
-													{contact.firstName}
-												</ListGroupItem>
-											);
-										}
-								  })}
+														{contact.lastName.toLowerCase()}
+													</span>
+												</h5>
+											</ListGroupItem>
+										);
+									} else {
+										return null
+									}
+								})}
 						</ListGroup>
 					</Col>
 				</Row>
 			</Container>
-		</div>
+		</div >
 	);
 }
 
@@ -188,7 +179,7 @@ function Contactpage(props) {
 		} else {
 			history.push('/');
 		}
-	});
+	}, [history]);
 
 	return (
 		<div>
