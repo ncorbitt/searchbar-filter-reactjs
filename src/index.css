@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Neucha&display=swap");
+
+body {
+	margin: 0;
+	font-family: "Neucha";
+	max-height: 100vh;
+	zoom: 80%;
+}
