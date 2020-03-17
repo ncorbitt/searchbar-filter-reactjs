@@ -1,6 +1,3 @@
-html {
-	background-color: #2d5d8e;
-}
 
 .App {
 	background-color: #2d5d8e;
@@ -12,6 +9,13 @@ html {
 	margin-top: 15% !important;
 }
 
+#removeOpacityOnHover:hover {
+	opacity: 1 !important;
+}
+
+#contact:hover{
+	opacity: 1 !important;
+}
 #searchBox {
 	background-color: #142438;
 	color: white;

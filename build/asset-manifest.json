@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bb4f445b.chunk.css",
+    "main.js": "/static/js/main.fcb4db44.chunk.js",
+    "main.js.map": "/static/js/main.fcb4db44.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1b20ac46.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1b20ac46.js.map",
+    "static/css/2.de424728.chunk.css": "/static/css/2.de424728.chunk.css",
+    "static/js/2.248ee3ca.chunk.js": "/static/js/2.248ee3ca.chunk.js",
+    "static/js/2.248ee3ca.chunk.js.map": "/static/js/2.248ee3ca.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b87e986129905bd5fed7b99af4a0bce1.js": "/precache-manifest.b87e986129905bd5fed7b99af4a0bce1.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/static/css/2.de424728.chunk.css.map",
+    "static/css/main.bb4f445b.chunk.css.map": "/static/css/main.bb4f445b.chunk.css.map",
+    "static/js/2.248ee3ca.chunk.js.LICENSE.txt": "/static/js/2.248ee3ca.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/juniperphoton-hmbNJeIzHvY-unsplash.037fbacf.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1b20ac46.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.248ee3ca.chunk.js",
+    "static/css/main.bb4f445b.chunk.css",
+    "static/js/main.fcb4db44.chunk.js"
+  ]
+}

@@ -1,8 +1,99 @@
 @import url("https://fonts.googleapis.com/css?family=Neucha&display=swap");
 
-body {
+
+html,body,.App {
+	background-image: url('./assests/juniperphoton-hmbNJeIzHvY-unsplash.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position-y: 0%;
+	background-attachment: fixed;
+	background-color: black !important;
+}
+
+body{
 	margin: 0;
 	font-family: "Neucha";
-	max-height: 100vh;
-	zoom: 80%;
+}
+
+#search-container {
+	height: 100vh !important;
+}
+
+
+#bg-pic-credit:hover {
+	cursor: pointer !important;
+	
+	transform: rotate(-20deg) scale(2)!important;
+}
+
+@media (min-width:320px) {
+	body {
+		zoom: 100%;
+	}
+
+	html, body, .App {
+		background-image: url('./assests/hanson-lu-jYkvecfWgx0-unsplash.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-position-y: 0%;
+		background-attachment: fixed;
+	}
+
+	#title {
+		font-size: 2.4em !important;
+	}
+
+	#bg-pic-credit {
+		display: none
+	}
+}
+
+@media (min-width:360px)  {
+	/* DarkBlue #071a42 */
+
+}
+
+@media (min-width:375px) {
+
+
+	#title {
+		font-size: 2.4em !important;
+	}
+}
+
+@media (min-width:425px) {
+
+	#Note {
+		font-size: 1.2em;
+	}
+}
+
+@media (min-width:768px) {
+	body {
+		zoom: 68%;
+	}
+	.App {
+		background-size: 100%;
+	}
+
+	#title {
+		font-size: 4em !important;
+	}
+
+	#Note {
+		font-size: 1.5em;
+	}
+
+	html,.App {
+		background-image: url('./assests/juniperphoton-hmbNJeIzHvY-unsplash.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-position-y: 0%;
+		background-attachment: fixed;
+	}
+
+	#bg-pic-credit {
+		display: block
+	}
+
 }
